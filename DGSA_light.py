@@ -8,7 +8,7 @@ import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 
-def DGSA_light(parameters, responses, ParametersNames = 0, n_clsters = 3, n_boots = 3000,):
+def DGSA_light(parameters, responses, ParametersNames = None, n_clsters = 3, n_boots = 3000):
     '''
     Main function of DGSA light version
     Parameters
@@ -55,7 +55,7 @@ def DGSA_light(parameters, responses, ParametersNames = 0, n_clsters = 3, n_boot
     '''STEP 3. Calculate main DGSA measurements'''
     dgsa_measures_cls = L1norm_clster/(np.percentile(L1norm_Nb, 95, axis=0))
     dgsa_measures_main = np.max(dgsa_measures_cls, axis=0)
-    if ParametersNames == 0:
+    if ParametersNames is None:
         dgsa_measures_main = pd.DataFrame(dgsa_measures_main, ['p{}'.format(i) for i in range(1, n_parameters+1)])
     else:
         dgsa_measures_main = pd.DataFrame(dgsa_measures_main, ParametersNames)

@@ -4,7 +4,7 @@
 <p> Plot results - using gsa_pareto_plt.py
 
 ## Example
-<p> DGSA_Light_example.ipynb
+<p> Tutorial.ipynb
 
   
 ### Licensing
